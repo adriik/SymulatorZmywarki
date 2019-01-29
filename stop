@@ -1,0 +1,10 @@
+#!/bin/bash
+pkill -f xterm
+ipcrm --all=msg
+shmid=`ipcs | cut -d " " -f1 | grep 0x | grep -v 0x00000000`
+while read line; do  
+	#ARRAY[$c]="$line"
+	ipcrm -M $line
+	#c=$((c+1))
+done < <(echo "$shmid")
+

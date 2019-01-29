@@ -1,0 +1,92 @@
+#include <iostream>
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include <sys/msg.h>
+#include <errno.h>
+using namespace std;
+#define POMPA_MYJACA 8
+
+int sterowanie = 0;
+int stanObecny = 0;
+
+struct mymsgbuf {
+    long    mtype;          /* typ wiadomości */
+    int     request;        /* numer żądania danego działania */
+    int     wartosc;
+} msg, buf;
+
+int open_queue( key_t keyval ) {
+    int     qid;
+
+    if((qid = msgget( keyval, IPC_CREAT | 0660 )) == -1)
+        return(-1);
+    return(qid);
+}
+
+int send_message( int qid, struct mymsgbuf *qbuf ){
+    int result, length;
+
+    /* lenght jest rozmiarem struktury minus sizeof(mtype) */
+    length = sizeof(struct mymsgbuf) - sizeof(long);
+
+    if((result = msgsnd( qid, qbuf, length, IPC_NOWAIT)) == -1)
+          return(-1);
+    return(result);
+}
+
+int remove_queue( int qid ){
+    if( msgctl( qid, IPC_RMID, 0) == -1)
+        return(-1);
+    return(0);
+}
+
+int read_message( int qid, long type, struct mymsgbuf *qbuf ){
+    int     result, length;
+    /* lenght jest rozmiarem struktury minus sizeof(mtype) */
+    length = sizeof(struct mymsgbuf) - sizeof(long);
+    if((result = msgrcv( qid, qbuf, length, type,  IPC_NOWAIT)) == -1)
+        return(-1);
+    return(result);
+}
+
+int main(int argc, char *argv[])
+{
+    int id_kolejki = POMPA_MYJACA;
+    key_t msgkey_kolejki;
+    int qid_kolejki;
+    msgkey_kolejki = (key_t)POMPA_MYJACA;
+
+    if(( qid_kolejki = open_queue( msgkey_kolejki)) == -1)
+    {
+        perror("Otwieranie_kolejki");
+        exit(1);
+    }
+
+
+    msg.mtype = id_kolejki;
+    msg.request = 1;
+
+    while(1)
+    {
+        printf("Halo to ja");
+        read_message(qid_kolejki, id_kolejki, &buf);
+        sterowanie = buf.wartosc;
+        if (sterowanie != stanObecny)
+        {
+            fflush(stdout);
+            if (sterowanie == 1)
+                printf("Pompa myjaca zostala wlaczona\n");
+            else
+                printf("Pompa myjaca zostala wylaczona\n");
+            stanObecny = sterowanie;
+        }
+
+        //sleep(1);
+    }
+
+    return 0;
+}
+

@@ -1,0 +1,54 @@
+#!/bin/bash
+ipcrm --all=msg
+shmid=`ipcs | cut -d " " -f1 | grep 0x | grep -v 0x00000000`
+while read line; do  
+	#ARRAY[$c]="$line"
+	ipcrm -M $line
+	#c=$((c+1))
+done < <(echo "$shmid")
+
+if [ -n "$1" ] && [ -n "$2" ]; then
+	
+	length=$1
+	height=$2
+	x_offset=0
+	y_offset=45
+	declare -a program=("Sterowanie" "CzujnikDolnegoPoziomuWody" "CzujnikGornegoPoziomuWody"\
+				"CzujnikProgramu" "Drzwi" "PompaMyjaca" "PompaWlewajaca"\
+				"PompaWylewajaca" "Grzalka" "CzujnikTemperatury")
+
+	#./PompaWylewajaca/bin/Release/PompaWylewajaca > PompaWylewajaca_log &
+	index_programu=0
+	for (( i=0; $i < 3; i++ ))
+	do
+		for (( j=0; $j < 4; j++ ))
+		do
+			x=$((length*6*i+x_offset))
+			y=$((height*15*j+y_offset))
+
+#			printf "Okno [$i][$j] = $x,$y\n"
+			xterm -geometry ${length}x${height}+${x}+${y} -title "${program[$index_programu]}" -e \
+				"./${program[$index_programu]}/bin/Release/${program[$index_programu]}" &
+			#./logi/${program[$index_programu]}
+			index_programu=$((index_programu+1))
+			
+		done
+	done
+	
+
+else
+	echo "Podaj rozmiar wielkosci okien"
+	echo "./start <szerokosc> <wysokosc>"
+	echo "np. ./start 80 24"
+fi
+
+
+#xterm -geometry 80x24+0+0 -title "Sterowanie" -e "./Sterowanie/bin/Release/Sterowanie" &
+#xterm -geometry 80x24+485+0 -title "CzujnikDolnegoPoziomuWody" -e "./CzujnikDolnegoPoziomuWody/bin/Release/CzujnikDolnegoPoziomuWody" &
+#xterm -geometry 80x24+970+0 -title "CzujnikGornegoPoziomuWody" -e "./CzujnikGornegoPoziomuWody/bin/Release/CzujnikGornegoPoziomuWody" &
+#xterm -geometry 80x24+0+365 -title "CzujnikProgramu" -e "./CzujnikProgramu/bin/Release/CzujnikProgramu" &
+#xterm -geometry 80x24+485+365 -title "Drzwi" -e "./Drzwi/bin/Release/Drzwi" &
+#xterm -geometry 80x24+970+365 -title "PompaMyjaca" -e "./PompaMyjaca/bin/Release/PompaMyjaca" &
+#xterm -geometry 80x24+0+730 -title "PompaWlewajaca" -e "./PompaWlewajaca/bin/Release/PompaWlewajaca" &
+#xterm -geometry 80x24+485+730 -title "PompaWylewajaca" -e "./PompaWylewajaca/bin/Release/PompaWylewajaca" &
+

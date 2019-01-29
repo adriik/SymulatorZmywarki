@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Zmywarka>
+	<Sterowanie>
+	        <MaksymalnaTemperatura Wartosc="30" />
+		<MinimalnaTemperatura Wartosc="20" />
+	        <czasOsiagnieciaTemperatury Wartosc="20" />
+	        <czasNalaniaWody Wartosc="20" />
+	        <czasWylaniaWody Wartosc="20" />
+	        <CzasMycia Wartosc="10" />
+		<DzielnikWartosci Wartosc="100"/>
+	</Sterowanie>
+	<PompaMyjaca>
+		<PompaMyjacaKrok Wartosc="1"/>
+	</PompaMyjaca>
+	<CzujnikDrzwi>
+		<DrzwiStanPoczatkowy Wartosc="0" />
+		<CzujnikDrzwiKrok Wartosc="100" />
+	</CzujnikDrzwi>
+	<CzujnikProgramu>
+		<CzujnikProgramuKrok Wartosc="100" />
+	</CzujnikProgramu>
+	<SensorDolnegoPoziomuWody>
+		<WysokoscDolnegoSensoraWody Wartosc="1" />
+		<SensorWodyDolnyKrok Wartosc="1" />
+	</SensorDolnegoPoziomuWody>
+	<SensorTemperatury>
+		<PoczatkowaTemperatura Wartosc="2000" />
+		<SensorTemperaturyKrok Wartosc="1" />
+	</SensorTemperatury>
+	<SensorGornegoPoziomuWody>
+		<WysokoscGornegoSensoraWody Wartosc="10" />
+		<SensorWodyGornyKrok Wartosc="1" />
+	</SensorGornegoPoziomuWody>
+	<PompaWlewajaca>
+		<PompaWlewajacaWartosc Wartosc="1" />
+	</PompaWlewajaca>
+	<Grzalka>
+		<GrzalkaWartosc Wartosc="100" />
+		<GrzalkaWartoscUjemna Wartosc="-25" />
+	</Grzalka>
+	<PompaWylewajaca>
+		<PompaWylewajacaWartosc Wartosc="1" />
+	</PompaWylewajaca>
+</Zmywarka>

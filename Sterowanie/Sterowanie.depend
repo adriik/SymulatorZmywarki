@@ -1,0 +1,147 @@
+# depslib dependency file v1.0
+1547498574 source:/home/osboxes/Desktop/test/Sterowanie/main.cpp
+	<iostream>
+	<stdio.h>
+	<string.h>
+	<unistd.h>
+	<sys/types.h>
+	<sys/ipc.h>
+	<sys/msg.h>
+	<errno.h>
+	"pugixml.hpp"
+	<pthread.h>
+	<stdlib.h>
+	<sys/shm.h>
+
+1543869874 /home/osboxes/Desktop/test/Sterowanie/pugixml.hpp
+	"pugiconfig.hpp"
+	<stddef.h>
+	<exception>
+	<iterator>
+	<iosfwd>
+	<string>
+
+1543869876 /home/osboxes/Desktop/test/Sterowanie/pugiconfig.hpp
+
+1543869674 source:/home/osboxes/Desktop/test/Sterowanie/pugixml.cpp
+	"pugixml.hpp"
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<assert.h>
+	<limits.h>
+	<wchar.h>
+	<math.h>
+	<float.h>
+	<istream>
+	<ostream>
+	<string>
+	<new>
+	<stdint.h>
+
+1543848074 source:/home/osboxes/Desktop/test - nowe/Sterowanie/pugixml.cpp
+	"pugixml.hpp"
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<assert.h>
+	<limits.h>
+	<wchar.h>
+	<math.h>
+	<float.h>
+	<istream>
+	<ostream>
+	<string>
+	<new>
+	<stdint.h>
+
+1543848274 /home/osboxes/Desktop/test - nowe/Sterowanie/pugixml.hpp
+	"pugiconfig.hpp"
+	<stddef.h>
+	<exception>
+	<iterator>
+	<iosfwd>
+	<string>
+
+1543848276 /home/osboxes/Desktop/test - nowe/Sterowanie/pugiconfig.hpp
+
+1545076050 source:/home/osboxes/Desktop/test - nowe/Sterowanie/main.cpp
+	<iostream>
+	<stdio.h>
+	<string.h>
+	<unistd.h>
+	<sys/types.h>
+	<sys/ipc.h>
+	<sys/msg.h>
+	<errno.h>
+	"pugixml.hpp"
+	<pthread.h>
+	<stdlib.h>
+	<sys/shm.h>
+
+1543869674 source:/home/osboxes/Desktop/xubuntu/test/Sterowanie/pugixml.cpp
+	"pugixml.hpp"
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<assert.h>
+	<limits.h>
+	<wchar.h>
+	<math.h>
+	<float.h>
+	<istream>
+	<ostream>
+	<string>
+	<new>
+	<stdint.h>
+
+1543869874 /home/osboxes/Desktop/xubuntu/test/Sterowanie/pugixml.hpp
+	"pugiconfig.hpp"
+	<stddef.h>
+	<exception>
+	<iterator>
+	<iosfwd>
+	<string>
+
+1543869876 /home/osboxes/Desktop/xubuntu/test/Sterowanie/pugiconfig.hpp
+
+1543869674 source:/home/osboxes/Desktop/SCR Projekt/Sterowanie/pugixml.cpp
+	"pugixml.hpp"
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<assert.h>
+	<limits.h>
+	<wchar.h>
+	<math.h>
+	<float.h>
+	<istream>
+	<ostream>
+	<string>
+	<new>
+	<stdint.h>
+
+1543869874 /home/osboxes/Desktop/SCR Projekt/Sterowanie/pugixml.hpp
+	"pugiconfig.hpp"
+	<stddef.h>
+	<exception>
+	<iterator>
+	<iosfwd>
+	<string>
+
+1543869876 /home/osboxes/Desktop/SCR Projekt/Sterowanie/pugiconfig.hpp
+
+1545254793 source:/home/osboxes/Desktop/SCR Projekt/Sterowanie/main.cpp
+	<iostream>
+	<stdio.h>
+	<string.h>
+	<unistd.h>
+	<sys/types.h>
+	<sys/ipc.h>
+	<sys/msg.h>
+	<errno.h>
+	"pugixml.hpp"
+	<pthread.h>
+	<stdlib.h>
+	<sys/shm.h>
+
